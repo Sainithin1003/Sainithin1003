@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        node {
+            label 'master'
+        }
+    }
+
+
+    stages {
+        stage('Checkout code') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '779594ea-6c01-491b-994f-8d38f52ae4cd', url: 'https://github.com/urbossram/windowsvm.git']]])
+            }
+        }
+		
+		stage('Kickoff ansible-playbook to update Windows VM') {
+		    steps {
+			    sh 'ansible-playbook --extra-vars "user=${USER} password=${PASSWORD}" ${WORKSPACE}/winvmu.yml -i ${IP}, -vvv'
+				}
+			}	
+		}
+	}	
