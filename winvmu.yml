@@ -8,10 +8,8 @@
   tasks:
    - name: check for windows update and install
      win_updates:
-       category_names:
-         -SecurityUpdates
-         -CriticalUpdates
-         -UpdateRollups
+       category_names: SecurityUpdates
+       state: installed
        reboot: yes  
      register: result
        
