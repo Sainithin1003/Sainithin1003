@@ -14,8 +14,8 @@
          -UpdateRollups
        state: installed
        log_path: c:\winupdate_vm.txt
-       register: window_up
+       register: result
        
    - name: Restart the server if required
      win_reboot:
-     when: window_up.reboot_required
+     when: result.reboot_required
