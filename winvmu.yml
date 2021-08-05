@@ -12,6 +12,7 @@
          -SecurityUpdates
          -CriticalUpdates
          -UpdateRollups
+       reboot: yes  
      register: result
        
    - debug: var=result    
