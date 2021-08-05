@@ -13,8 +13,9 @@
          -CriticalUpdates
          -UpdateRollups
        state: installed
-       log_path: c:\winupdate_vm.txt
        register: result
+       
+   - debug: var=result    
        
    - name: Restart the server if required
      win_reboot:
