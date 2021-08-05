@@ -1,0 +1,16 @@
+---
+- hosts: all
+  vars:
+     - ansible_ssh_user: "{{ user }}"
+     - ansible_ssh_pass: "{{ password }}"
+     - ansible_ssh_port: "5985"
+     - ansible_connection: "winrm"
+  tasks:
+   - name: check for windows update
+     win_updates:
+       category_names:
+         -SecurityUpdates
+         -CriticalUpdates
+         -UpdateRollups
+       state: searched
+       log_path: c:\winupdate_vm.txt
