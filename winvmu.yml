@@ -8,7 +8,7 @@
   tasks:
    - name: check for windows update and install
      win_updates:
-       category_names: SecurityUpdates
+       category_names: DefinitionUpdates
        state: installed
      register: result
        
