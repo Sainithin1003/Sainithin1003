@@ -13,9 +13,9 @@
          -CriticalUpdates
          -UpdateRollups
        state: installed
-       register: winupdate
        log_path: c:\winupdate_vm.txt
+       register: window_up
        
    - name: Restart the server if required
      win_reboot:
-     when: winupdate.reboot_required
+     when: window_up.reboot_required
