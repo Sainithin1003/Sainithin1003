@@ -15,7 +15,7 @@ pipeline {
 		
 		stage('Kickoff ansible-playbook to update Windows VM') {
 		    steps {
-			    sh 'ansible-playbook --extra-vars "user=${USER} password=${PASSWORD}" ${WORKSPACE}/winvmu.yml -i ${IP}, -vvv'
+			    sh 'ansible-playbook --extra-vars "user=${USER} password=${PASSWORD}" ${WORKSPACE}/winvmu.yml -i ${IP},'
 				}
 			}	
 		}
