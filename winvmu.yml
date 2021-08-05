@@ -12,7 +12,6 @@
          -SecurityUpdates
          -CriticalUpdates
          -UpdateRollups
-       state: installed
      register: result
        
    - debug: var=result    
